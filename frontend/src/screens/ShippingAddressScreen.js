@@ -15,14 +15,14 @@ export default function ShippingAddressScreen() {
   } = state
   const [fullName, setFullName] = useState(shippingAddress.fullName || '')
   const [address, setAddress] = useState(shippingAddress.address || '')
-  const [city, setCity] = useState(shippingAddress.city || '')
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode || '')
+  const [phone, setPhone] = useState(shippingAddress.phone || '')
+
   useEffect(() => {
     if (!userInfo) {
       navigate('/signin?redirect=/shipping')
     }
   }, [userInfo, navigate])
-  const [country, setCountry] = useState(shippingAddress.country || '')
+
   const submitHandler = (e) => {
     e.preventDefault()
     ctxDispatch({
@@ -30,9 +30,7 @@ export default function ShippingAddressScreen() {
       payload: {
         fullName,
         address,
-        city,
-        postalCode,
-        country,
+        phone,
       },
     })
     localStorage.setItem(
@@ -40,9 +38,7 @@ export default function ShippingAddressScreen() {
       JSON.stringify({
         fullName,
         address,
-        city,
-        postalCode,
-        country,
+        phone,
       }),
     )
     navigate('/payment')
@@ -73,30 +69,15 @@ export default function ShippingAddressScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="city">
-            <Form.Label>City</Form.Label>
+          <Form.Group className="mb-3" controlId="phone">
+            <Form.Label>phone</Form.Label>
             <Form.Control
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="postalCode">
-            <Form.Label>Postal Code</Form.Label>
-            <Form.Control
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="country">
-            <Form.Label>Country</Form.Label>
-            <Form.Control
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              required
-            />
-          </Form.Group>
+
           <div className="mb-3">
             <Button variant="primary" type="submit">
               Continue

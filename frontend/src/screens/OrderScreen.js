@@ -204,9 +204,10 @@ export default function OrderScreen() {
               <Card.Title>Shipping</Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                <strong>Address: </strong> {order.shippingAddress.address},
-                {order.shippingAddress.city}, {order.shippingAddress.postalCode}
-                ,{order.shippingAddress.country}
+                <strong>Address: </strong> {order.shippingAddress.address}
+                <br />
+                <strong>phone: </strong>
+                {order.shippingAddress.phone}
               </Card.Text>
               {order.isDelivered ? (
                 <MessageBox variant="success">
@@ -276,12 +277,7 @@ export default function OrderScreen() {
                     <Col>${order.shippingPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Tax</Col>
-                    <Col>${order.taxPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
+                <ListGroup.Item></ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
                     <Col>

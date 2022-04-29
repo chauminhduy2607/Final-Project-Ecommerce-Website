@@ -66,8 +66,9 @@ main {
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #100901;
+  background-color: #5bc0de;
   transition: 0.5s;
+  color: black;
 }
 
 .site-container {
@@ -81,4 +82,17 @@ main {
 }
 .text-bold {
   font-weight: bold;
+}
+.text-center {
+  background: #5bc0de;
+  height: auto;
+  width: 100vw;
+  padding-top: 20px;
+  color: black;
+}
+.nav-link {
+  color: black;
+}
+.dropdown-item {
+  color: black;
 }
